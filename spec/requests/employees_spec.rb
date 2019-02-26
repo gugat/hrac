@@ -61,6 +61,7 @@ RSpec.describe 'Employees API', type: :request do
 
       it 'creates an employee' do
         json = JSON.parse(response.body)
+        expect(response).to have_http_status(201)
         expect(json).to include_json(created_employee_message(valid_attributes))
         expect(json).to match_json_schema('employee')
       end
@@ -69,6 +70,7 @@ RSpec.describe 'Employees API', type: :request do
     context 'when employee parameters are invalid' do
 
       before { post '/employees', params: invalid_attributes }
+
       it 'returns a validation failure message' do
         json = JSON.parse(response.body)
         expect(json).to include_json(invalid_params_employee_message)

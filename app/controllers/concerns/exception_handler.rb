@@ -8,7 +8,7 @@ module ExceptionHandler
       render json: { 
         errors: [
           error: {
-            title: 'Employee not found',
+            title: 'Record not found',
             detail: e.message,
             code: '404'
           }
@@ -20,7 +20,7 @@ module ExceptionHandler
       render json: { 
         errors: [
           error: {
-            title: 'Invalid employee parameters',
+            title: 'Invalid record parameters',
             detail: e.message,
             code: '422'
           }

@@ -34,7 +34,7 @@ module ExpectedResponseHelper
         errors: [
         {
           error: {
-            title: 'Employee not found',
+            title: 'Record not found',
             detail: "Couldn't find Employee with 'id'=#{employee_id}",
             code: '404'
           }
@@ -47,7 +47,7 @@ module ExpectedResponseHelper
         errors: [
           {
             error: {
-              title: 'Invalid employee parameters',
+              title: 'Invalid record parameters',
               detail: "Validation failed: Last name can't be blank",
               code: '422'
             }
