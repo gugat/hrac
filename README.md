@@ -1,5 +1,11 @@
 # README
 
+
+#### Setup
+
+Environment variables 
+- `SCHEMAS_HOST`: Host for the schemas. Ex: `http://localhost:3000` 
+
 #### Api
 
 - Api responses follow [Json Api](https://jsonapi.org) convention
@@ -9,6 +15,27 @@
 #### Test Suite
 
 `bundle exec rspec`
+
+
+#### Deploy
+
+First deploy
+
+```
+heroku login
+heroku create
+RAILS_ENV=production rake swagger:host
+git push heroku master
+heroku run rake db:migrate
+```
+
+Following deploys
+
+```
+RAILS_ENV=production rake swagger:host
+git push heroku master
+heroku run rake db:migrate
+```
 
 
 #### TODO

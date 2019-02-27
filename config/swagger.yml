@@ -1,0 +1,9 @@
+production:
+  schemas_host: <%= ENV["SCHEMAS_HOST"] %>
+
+development:
+  schemas_host: 'http://localhost:3000'
+
+  test:
+  schemas_host: 'http://localhost:3000'
+

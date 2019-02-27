@@ -32,13 +32,13 @@
           "200": {
             "description": "Return multiple employee assistances",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistances_response"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/assistances_response"
             }
           },
           "404": {
             "description": "Employee not found",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -67,7 +67,7 @@
             "in": "body",
             "require": "true",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistance_request"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/assistance_request"
             }
           }
         ],
@@ -75,13 +75,13 @@
           "201": {
             "description": "Assistance created",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistance_response"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/assistance_response"
             }
           },
           "422": {
             "description": "Invalid request",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -112,13 +112,13 @@
           "200": {
             "description": "Returns a single employee",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employee_response"
             }
           },
           "404": {
             "description": "Employee not found",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -140,7 +140,7 @@
           "200": {
             "description": "Return multiple employees",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/employees_response"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employees_response"
             }
           }
         }
@@ -162,7 +162,7 @@
             "in": "body",
             "require": "true",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_request"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employee_request"
             }
           }
         ],
@@ -173,7 +173,7 @@
           "422": {
             "description": "Invalid request",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
             }
           }
         }
