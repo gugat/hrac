@@ -90,7 +90,12 @@ CREATE TABLE public.employees (
     first_name character varying,
     last_name character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    email character varying,
+    provider character varying DEFAULT 'email'::character varying NOT NULL,
+    uid character varying DEFAULT ''::character varying NOT NULL,
+    tokens text,
+    encrypted_password character varying DEFAULT ''::character varying NOT NULL
 );
 
 
@@ -176,6 +181,13 @@ CREATE INDEX index_assistances_on_employee_id ON public.assistances USING btree 
 
 
 --
+-- Name: index_employees_on_uid_and_provider; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_employees_on_uid_and_provider ON public.employees USING btree (uid, provider);
+
+
+--
 -- Name: assistances fk_rails_50b4b716bd; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -193,6 +205,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190224135012'),
 ('20190224135150'),
 ('20190226015501'),
-('20190226031815');
+('20190226031815'),
+('20190227230803'),
+('20190227231820');
 
 
