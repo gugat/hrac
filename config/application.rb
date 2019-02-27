@@ -18,6 +18,18 @@ Bundler.require(*Rails.groups)
 
 module Rha
   class Application < Rails::Application
+
+    # Configure Rack CORS
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', 
+          headers: :any, 
+          expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+          methods: [:get, :post, :options, :delete, :put]
+      end
+    end
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
