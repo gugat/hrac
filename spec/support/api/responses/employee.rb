@@ -44,11 +44,11 @@ module ExpectedResponseHelper
     def invalid_params_employee_message
       {
         errors: [
-            {
-              title: 'Invalid record parameters',
-              detail: "Validation failed: Last name can't be blank",
-              code: '422'
-            }
+          {
+            title: 'Invalid record parameters',
+            detail: "Validation failed: Last name can't be blank",
+            code: '422'
+          }
         ]
       }
     end

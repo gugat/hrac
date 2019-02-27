@@ -4,7 +4,7 @@ class AssistancesController < ApplicationController
 
   def index
     assistances = @employee.assistances
-    render json: assistances, status: 200
+    render json: serialize(assistances), status: 200
   end
 
   def create

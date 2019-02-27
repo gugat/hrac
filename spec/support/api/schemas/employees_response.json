@@ -1,5 +1,5 @@
 {
-  "description": "Representation of an employees list response body",
+  "description": "Representation of employees list response body",
   "type": "object",
   "required": ["data"],
   "properties": {

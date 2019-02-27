@@ -1,7 +1,7 @@
 module ExpectedResponseHelper
 
   module Assistance
-    def created_assistance_message(valid_attributes, employee_id)
+    def created_assistance_message(valid_attributes)
       {
         data: {
           type: 'assistance',
@@ -12,7 +12,7 @@ module ExpectedResponseHelper
           relationships: {
             employee: {
               data: {
-                id: employee_id.to_s,
+                id: valid_attributes[:employee_id].to_s,
                 type: 'employee'
               }
             }
@@ -26,11 +26,9 @@ module ExpectedResponseHelper
       {
         errors: [
           {
-            error: {
-              title: 'Invalid record parameters',
-              detail: "Validation failed: Kind can't be blank",
-              code: '422'
-            }
+            title: 'Invalid record parameters',
+            detail: "Validation failed: Kind can't be blank",
+            code: '422'
           }
         ]
       }

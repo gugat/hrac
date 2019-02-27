@@ -1,0 +1,45 @@
+{
+  "description": "Representation of assistances list response body",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data" : {
+      "type" : "array",
+      "items": {
+        "type" : "object",
+        "required" : [
+          "type",
+          "id",
+          "attributes"
+        ],
+        "properties" : {
+          "type": {
+            "type": "string",
+            "description": "Object type"
+          },
+          "id" : { 
+            "type" : "string",
+            "description": "Unique identifier of the assistance" },
+          "attributes" : { 
+            "type" : "object",
+            "required": [
+              "kind",
+              "happening_at"
+            ],
+            "properties" :{
+              "kind": { 
+                "type": "string",
+                "description": "Kind of assistance: 'in' or 'out'",
+                "enum": ["in", "out"]
+              },
+              "happening_at": { 
+                "type": "string",
+                "description": "Date and time when the assistacen happened" 
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

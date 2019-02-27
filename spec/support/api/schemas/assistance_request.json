@@ -1,0 +1,19 @@
+{
+  "description": "Representation of an assistance request body",
+  "type" : "object",
+  "required" : [
+    "kind",
+    "happening_at"
+  ],
+  "properties" :{
+    "kind": { 
+      "type": "string",
+      "description": "Kind of assistance: 'in' or 'out'" ,
+      "enum": ["in", "out"]
+    },
+    "happening_at": { 
+      "type": "string",
+      "description": "Date and time when the assistacen happened" 
+    }
+  }
+}

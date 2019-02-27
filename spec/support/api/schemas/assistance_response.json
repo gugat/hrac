@@ -27,10 +27,13 @@
           "properties" :{
             "kind": { 
               "type": "string",
-              "description": "Kind of assistance: 'in' or 'out'" },
+              "description": "Kind of assistance: 'in' or 'out'",
+              "enum": ["in", "out"] 
+            },
             "happening_at": { 
               "type": "string",
-              "description": "Date and time when the assistacen happened" }
+              "description": "Date and time when the assistacen happened" 
+            }
           }
         }
       }

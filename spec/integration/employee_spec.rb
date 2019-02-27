@@ -48,7 +48,6 @@ describe 'Employees API' do
         schema '$ref' => schema_url('employees_response')
         run_test! do |response|
           json = JSON.parse(response.body)
-          expect(json['data']).not_to be_empty
           expect(json['data'].size).to eq(5)
         end
       end
@@ -77,7 +76,6 @@ describe 'Employees API' do
         run_test! do
           json = JSON.parse(response.body)
           expect(json).to include_json(invalid_params_employee_message)
-          expect(json).to match_json_schema('errors')
         end
       end
     end
