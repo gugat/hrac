@@ -38,6 +38,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.6.0)
+      public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
     builder (3.2.3)
     byebug (11.0.0)
@@ -60,6 +62,8 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.5.3)
       concurrent-ruby (~> 1.0)
+    json-schema (2.8.1)
+      addressable (>= 2.4)
     json_matchers (0.10.0)
       json_schema
     json_schema (0.20.3)
@@ -80,6 +84,7 @@ GEM
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
     pg (0.21.0)
+    public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.6)
     rack-test (1.1.0)
@@ -129,6 +134,19 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+    rswag (2.0.5)
+      rswag-api (= 2.0.5)
+      rswag-specs (= 2.0.5)
+      rswag-ui (= 2.0.5)
+    rswag-api (2.0.5)
+      railties (>= 3.1, < 6.0)
+    rswag-specs (2.0.5)
+      activesupport (>= 3.1, < 6.0)
+      json-schema (~> 2.2)
+      railties (>= 3.1, < 6.0)
+    rswag-ui (2.0.5)
+      actionpack (>= 3.1, < 6.0)
+      railties (>= 3.1, < 6.0)
     ruby_dep (1.5.0)
     shoulda-matchers (3.1.3)
       activesupport (>= 4.0.0)
@@ -168,6 +186,10 @@ DEPENDENCIES
   rails (~> 5.1.3)
   rspec-json_expectations
   rspec-rails (~> 3.5)
+  rswag
+  rswag-api
+  rswag-specs
+  rswag-ui
   shoulda-matchers (~> 3.1)
   spring
   spring-watcher-listen (~> 2.0.0)

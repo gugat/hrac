@@ -7,7 +7,7 @@ module ExceptionHandler
     rescue_from ActiveRecord::RecordNotFound do |e|
       render json: { 
         errors: [
-          error: {
+          {
             title: 'Record not found',
             detail: e.message,
             code: '404'
@@ -19,7 +19,7 @@ module ExceptionHandler
     rescue_from ActiveRecord::RecordInvalid do |e|
       render json: { 
         errors: [
-          error: {
+          {
             title: 'Invalid record parameters',
             detail: e.message,
             code: '422'

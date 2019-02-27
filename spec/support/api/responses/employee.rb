@@ -32,26 +32,23 @@ module ExpectedResponseHelper
     def not_found_employee_message(employee_id)
       {
         errors: [
-        {
-          error: {
+          {
             title: 'Record not found',
             detail: "Couldn't find Employee with 'id'=#{employee_id}",
             code: '404'
           }
-        }]
+        ]
       }
     end
 
     def invalid_params_employee_message
       {
         errors: [
-          {
-            error: {
+            {
               title: 'Invalid record parameters',
               detail: "Validation failed: Last name can't be blank",
               code: '422'
             }
-          }
         ]
       }
     end

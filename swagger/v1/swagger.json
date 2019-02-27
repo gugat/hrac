@@ -1,0 +1,103 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "definitions": {
+  },
+  "paths": {
+    "/employees/{employee_id}": {
+      "get": {
+        "summary": "Find an employee by id",
+        "tags": [
+          "Employees"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "employee_id",
+            "in": "path",
+            "type": "string",
+            "require": "true",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a single employee",
+            "schema": {
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
+            }
+          },
+          "404": {
+            "description": "Employee not found",
+            "schema": {
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            }
+          }
+        }
+      }
+    },
+    "/employees": {
+      "get": {
+        "summary": "List employees",
+        "tags": [
+          "Employees"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Return multiple employees",
+            "schema": {
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/employees_response"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a new employee",
+        "tags": [
+          "Employees"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "employee",
+            "in": "body",
+            "require": "true",
+            "schema": {
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_request"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Employee created"
+          },
+          "422": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            }
+          }
+        }
+      }
+    }
+  }
+}

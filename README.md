@@ -1,5 +1,22 @@
 # README
 
+#### Api
+
+- Api responses follow [Json Api](https://jsonapi.org) convention
+- Generate documentation: `rake rswag:specs:swaggerize`.
+- Access documentation: `/api-docs`.
+
+#### Test Suite
+
+`bundle exec rspec`
+
+
+#### TODO
+
+- Reuse schemas.
+
+---
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
@@ -15,7 +32,13 @@ Things you may want to cover:
 
 * Database initialization
 
-* How to run the test suite: `bundle exec rspec`
+
+
+* Documentation: 
+
+ and visit `/api-docs`
+
+
 
 
 * Services (job queues, cache servers, search engines, etc.)

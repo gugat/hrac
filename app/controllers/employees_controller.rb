@@ -5,7 +5,7 @@ class EmployeesController < ApplicationController
 
   def index
     employees = Employee.all
-    render json: employees, status: 200
+    render json: serialize(employees), status: 200
   end
 
   def show

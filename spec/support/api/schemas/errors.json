@@ -4,23 +4,25 @@
   "required": ["errors"],
   "properties": {
     "errors": {
-      "required": ["title", "detail", "code"],
       "type": "array",
-      "properties": {
-        "title": {
-          "type": "string",
-          "description": "Error title"
-        },
-        "detail": {
-          "type": "string",
-          "description": "Error detail"
-        },
-        "code": {
-          "type": "string",
-          "description": "Error code"
-        }
-      } 
-
+      "items": {
+        "type": "object",
+        "required": ["title", "detail", "code"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Error title"
+          },
+          "detail": {
+            "type": "string",
+            "description": "Error detail"
+          },
+          "code": {
+            "type": "string",
+            "description": "Error code"
+          }
+        } 
+      }
     }
   }
   
