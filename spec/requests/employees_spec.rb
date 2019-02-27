@@ -17,7 +17,7 @@ RSpec.describe 'Employees API', type: :request do
       json = JSON.parse(response.body)
       expect(response).to have_http_status(200)
       expect(json).not_to be_empty
-      expect(json.size).to eq(5)
+      expect(json['data'].size).to eq(5)
     end
 
   end
@@ -32,7 +32,7 @@ RSpec.describe 'Employees API', type: :request do
         json = JSON.parse(response.body)
         expect(response).to have_http_status(200)
         expect(json).to include_json(found_employee_message(employee))
-        expect(json).to match_json_schema('employee')
+        expect(json).to match_json_schema('employee_response')
       end
 
     end
@@ -63,7 +63,7 @@ RSpec.describe 'Employees API', type: :request do
         json = JSON.parse(response.body)
         expect(response).to have_http_status(201)
         expect(json).to include_json(created_employee_message(valid_attributes))
-        expect(json).to match_json_schema('employee')
+        expect(json).to match_json_schema('employee_response')
       end
     end
 

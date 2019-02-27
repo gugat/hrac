@@ -18,7 +18,7 @@ RSpec.describe 'Assistances API', type: :request do
       json = JSON.parse(response.body)
       expect(response).to have_http_status(200)
       expect(json).not_to be_empty
-      expect(json.size).to eq(5)
+      expect(json['data'].size).to eq(5)
     end
 
   end
@@ -37,10 +37,10 @@ RSpec.describe 'Assistances API', type: :request do
 
       it 'creates an assistance' do
         json = JSON.parse(response.body)
-        expected_json = created_assistance_message(valid_attributes, employee_id)
+        expected_json = created_assistance_message(valid_attributes)
         expect(response).to have_http_status(201)
         expect(json).to include_json(expected_json)
-        expect(json).to match_json_schema('assistance')
+        expect(json).to match_json_schema('assistance_response')
       end
     end
 

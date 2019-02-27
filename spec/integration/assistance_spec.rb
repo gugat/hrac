@@ -15,8 +15,8 @@ describe 'Assistances API' do
 
     get 'List employee assistances' do
       tags 'Assistances'
-      consumes 'applicattion/json'
-      produces 'applicattion/json'
+      consumes 'application/json'
+      produces 'application/json'
       parameter name: :employee_id, in: :path, type: :string, require: :true
 
       response '200', 'Return multiple employee assistances' do
