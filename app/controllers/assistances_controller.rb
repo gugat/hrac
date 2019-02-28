@@ -1,7 +1,7 @@
 class AssistancesController < ApplicationController
 
   before_action :authenticate_employee!
-  before_action :set_employee, only: [:index, :create ]
+  before_action :set_employee, only: %i[index create]
 
   def index
     assistances = @employee.assistances

@@ -11,6 +11,7 @@ require 'rspec/rails'
 
 require 'rspec/json_expectations'
 require "json_matchers/rspec"
+require 'authentication_helper'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -36,7 +37,7 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
-JsonMatchers.schema_root = "spec/support/api/schemas"
+JsonMatchers.schema_root = 'spec/support/api/schemas'
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -60,7 +61,8 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
   end
 
-  # config.include ExpectedResponseHelper, type: :request
+  config.include ExpectedResponseHelper::Assistance, type: :request
+  config.include ExpectedResponseHelper::Employee, type: :request
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -87,3 +89,5 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+include Rails.application.routes.url_helpers

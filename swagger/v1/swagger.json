@@ -24,8 +24,33 @@
             "name": "employee_id",
             "in": "path",
             "type": "string",
-            "require": "true",
+            "require": true,
             "required": true
+          },
+          {
+            "name": "access-token",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "token_type",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "client",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "uid",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "expiry",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
@@ -56,16 +81,41 @@
         ],
         "parameters": [
           {
+            "name": "access-token",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "token_type",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "client",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "uid",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "expiry",
+            "in": "header",
+            "type": "string"
+          },
+          {
             "name": "employee_id",
             "in": "path",
             "type": "string",
-            "require": "true",
+            "require": true,
             "required": true
           },
           {
             "name": "assistance",
             "in": "body",
-            "require": "true",
+            "require": true,
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/assistance_request"
             }
