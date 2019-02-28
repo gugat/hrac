@@ -1,7 +1,7 @@
+# :nodoc:
 module ExpectedResponseHelper
-
+  # :nodoc:
   module Employee
-
     def found_employee_message(employee)
       {
         data: {
@@ -9,13 +9,12 @@ module ExpectedResponseHelper
           type: 'employee',
           attributes: {
             first_name: employee.first_name,
-            last_name: employee.last_name
+            last_name: employee.last_name,
+            email: employee.email
           }
         }
       }
     end
-
-    
 
     def created_employee_message(valid_attributes)
       {
@@ -23,7 +22,8 @@ module ExpectedResponseHelper
           type: 'employee',
           attributes: {
             first_name: valid_attributes[:first_name],
-            last_name: valid_attributes[:last_name]
+            last_name: valid_attributes[:last_name],
+            email: valid_attributes[:email]
           }
         }
       }
@@ -52,20 +52,5 @@ module ExpectedResponseHelper
         ]
       }
     end
-  
   end
-
-
-  # def employee_not_found_error()
-  #   {
-  #     errors: [
-  #       {
-  #         error: {
-  #           title: 'Employee not found',
-  #           detail: "Couldn't find Employee with 'id'=#{employee_id}"
-  #         }
-  #       }
-  #     ]
-  #   }
-  # end
 end

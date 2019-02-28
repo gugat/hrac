@@ -10,5 +10,5 @@ class Employee < ApplicationRecord
   has_many :assistances
 
   # Validations
-  validates_presence_of :first_name, :last_name
+  validates_presence_of :first_name, :last_name, :email#, :password
 end

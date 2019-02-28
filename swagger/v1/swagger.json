@@ -14,10 +14,10 @@
           "Assistances"
         ],
         "consumes": [
-          "applicattion/json"
+          "application/json"
         ],
         "produces": [
-          "applicattion/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -32,13 +32,13 @@
           "200": {
             "description": "Return multiple employee assistances",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/assistances_response"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistances_response"
             }
           },
           "404": {
             "description": "Employee not found",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -67,7 +67,7 @@
             "in": "body",
             "require": "true",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/assistance_request"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistance_request"
             }
           }
         ],
@@ -75,13 +75,13 @@
           "201": {
             "description": "Assistance created",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/assistance_response"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistance_response"
             }
           },
           "422": {
             "description": "Invalid request",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -104,21 +104,46 @@
             "name": "employee_id",
             "in": "path",
             "type": "string",
-            "require": "true",
+            "require": true,
             "required": true
+          },
+          {
+            "name": "access-token",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "token_type",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "client",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "uid",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "expiry",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Returns a single employee",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employee_response"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
             }
           },
           "404": {
             "description": "Employee not found",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -136,11 +161,38 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "name": "access-token",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "token_type",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "client",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "uid",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "expiry",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Return multiple employees",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employees_response"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/employees_response"
             }
           }
         }
@@ -158,22 +210,50 @@
         ],
         "parameters": [
           {
+            "name": "access-token",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "token_type",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "client",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "uid",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "expiry",
+            "in": "header",
+            "type": "string"
+          },
+          {
             "name": "employee",
             "in": "body",
-            "require": "true",
+            "require": true,
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employee_request"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_request"
             }
           }
         ],
         "responses": {
           "201": {
-            "description": "Employee created"
+            "description": "Employee created",
+            "schema": {
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
+            }
           },
           "422": {
             "description": "Invalid request",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
             }
           }
         }

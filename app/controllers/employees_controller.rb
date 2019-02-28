@@ -1,6 +1,7 @@
 # :nodoc:
 class EmployeesController < ApplicationController
 
+  before_action :authenticate_employee!
   before_action :set_employee, only: [:show]
 
   def index
@@ -24,7 +25,7 @@ class EmployeesController < ApplicationController
   end
 
   def employee_params
-    params.permit(:first_name, :last_name)
+    params.permit(:first_name, :last_name, :email, :password)
   end
 
   def serialize(employee)
