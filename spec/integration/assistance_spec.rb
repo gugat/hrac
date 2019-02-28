@@ -4,6 +4,8 @@ require 'swagger_helper'
 
 describe 'Assistances API' do
 
+  include_context 'shared auth'
+
   let!(:employer) { create(:employee) }
   let!(:employee) { create(:employee) }
   let!(:assistances) { create_list(:assistance, 5, employee_id: employee.id) }
@@ -30,20 +32,13 @@ describe 'Assistances API' do
   # Generate authentication headers
   let(:headers) { employer.create_new_auth_token }
 
-  # Assign authentication headers to variables
-  let(:'access-token') { headers['access-token'] }
-  let(:token_type) { headers['token-type'] }
-  let(:client) { headers['client'] }
-  let(:uid) { headers['uid'] }
-  let(:expiry) { headers['expiry'] }
-
   path "/employees/{employee_id}/assistances" do
     get 'List employee assistances' do
       tags 'Assistances'
       consumes 'application/json'
       produces 'application/json'
       parameter name: :employee_id, in: :path, type: :string, require: true
-      set_authentication_parameters
+      add_authentication_headers
 
       response '200', 'Return multiple employee assistances' do
         schema '$ref' => schema_url('assistances_response')
@@ -70,7 +65,7 @@ describe 'Assistances API' do
       tags 'Assistances'
       consumes 'application/json'
       produces 'application/json'
-      set_authentication_parameters
+      add_authentication_headers
       parameter name: :employee_id, in: :path, type: :string, require: true
       parameter name: :assistance, in: :body, require: true, schema: {
         '$ref' => schema_url('assistance_request')

@@ -2,6 +2,8 @@ require 'swagger_helper'
 
 describe 'Employees API' do
 
+  include_context 'shared auth'
+
   let!(:employees) { create_list(:employee, 5) }
   let!(:employee) { employees.last }
   let!(:employer) { employees.first }
@@ -30,13 +32,6 @@ describe 'Employees API' do
   # Generate authentication headers
   let(:headers) { employer.create_new_auth_token }
 
-  # Assign authentication headers to variables
-  let(:'access-token') { headers['access-token'] }
-  let(:token_type) { headers['token-type'] }
-  let(:client) { headers['client'] }
-  let(:uid) { headers['uid'] }
-  let(:expiry) { headers['expiry'] }
-
   path '/employees/{employee_id}' do
 
     get 'Find an employee by id' do
@@ -44,7 +39,7 @@ describe 'Employees API' do
       consumes 'application/json'
       produces 'application/json'
       parameter name: :employee_id, in: :path, type: :string, require: true
-      set_authentication_parameters
+      add_authentication_headers
 
       response '200', 'Returns a single employee' do
         schema '$ref' => schema_url('employee_response')
@@ -71,7 +66,7 @@ describe 'Employees API' do
       tags 'Employees'
       consumes 'application/json'
       produces 'application/json'
-      set_authentication_parameters
+      add_authentication_headers
 
       response '200', 'Return multiple employees' do
         schema '$ref' => schema_url('employees_response')
@@ -87,7 +82,7 @@ describe 'Employees API' do
       tags 'Employees'
       consumes 'application/json'
       produces 'application/json'
-      set_authentication_parameters
+      add_authentication_headers
       parameter name: :employee, in: :body, require: true, schema: {
         '$ref' => schema_url('employee_request')
       }
