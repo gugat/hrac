@@ -38,7 +38,7 @@ describe 'Employees API' do
       tags 'Employees'
       consumes 'application/json'
       produces 'application/json'
-      parameter name: :employee_id, in: :path, type: :string, require: true
+      parameter name: :employee_id, in: :path, type: :string, required: true
       add_authentication_headers
 
       response '200', 'Returns a single employee' do
@@ -83,7 +83,7 @@ describe 'Employees API' do
       consumes 'application/json'
       produces 'application/json'
       add_authentication_headers
-      parameter name: :employee, in: :body, require: true, schema: {
+      parameter name: :employee, in: :body, required: true, schema: {
         '$ref' => schema_url('employee_request')
       }
 

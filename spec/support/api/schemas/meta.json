@@ -1,0 +1,27 @@
+{
+  "description": "Representation of meta information",
+  "type" : "object",
+  "required": ["meta"],
+  "properties": {
+    "meta": {
+      "properties": {
+        "required": [
+          "copyright",
+          "authors"
+        ],
+        "properties" :{
+          "copyright": { 
+            "type": "string",
+            "description": "Company copyright" },
+          "authors": { 
+            "type": "array",
+            "description": "Authors of the API",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

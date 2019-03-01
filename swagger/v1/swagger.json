@@ -4,6 +4,23 @@
     "title": "API V1",
     "version": "v1"
   },
+  "securityDefinitions": {
+    "client": {
+      "type": "apiKey",
+      "name": "client",
+      "in": "header"
+    },
+    "access-token": {
+      "type": "apiKey",
+      "name": "access-token",
+      "in": "header"
+    },
+    "uid": {
+      "type": "apiKey",
+      "name": "uid",
+      "in": "header"
+    }
+  },
   "definitions": {
   },
   "paths": {
@@ -30,40 +47,45 @@
           {
             "name": "access-token",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "token_type",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "client",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "uid",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "expiry",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           }
         ],
         "responses": {
           "200": {
             "description": "Return multiple employee assistances",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistances_response"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/assistances_response"
             }
           },
           "404": {
             "description": "Employee not found",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -83,27 +105,32 @@
           {
             "name": "access-token",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "token_type",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "client",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "uid",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "expiry",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "employee_id",
@@ -117,7 +144,7 @@
             "in": "body",
             "require": true,
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistance_request"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/assistance_request"
             }
           }
         ],
@@ -125,13 +152,13 @@
           "201": {
             "description": "Assistance created",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistance_response"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/assistance_response"
             }
           },
           "422": {
             "description": "Invalid request",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -154,46 +181,50 @@
             "name": "employee_id",
             "in": "path",
             "type": "string",
-            "require": true,
             "required": true
           },
           {
             "name": "access-token",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "token_type",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "client",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "uid",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "expiry",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           }
         ],
         "responses": {
           "200": {
             "description": "Returns a single employee",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employee_response"
             }
           },
           "404": {
             "description": "Employee not found",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -215,34 +246,39 @@
           {
             "name": "access-token",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "token_type",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "client",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "uid",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "expiry",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           }
         ],
         "responses": {
           "200": {
             "description": "Return multiple employees",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/employees_response"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employees_response"
             }
           }
         }
@@ -262,34 +298,39 @@
           {
             "name": "access-token",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "token_type",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "client",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "uid",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "expiry",
             "in": "header",
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
             "name": "employee",
             "in": "body",
-            "require": true,
+            "required": true,
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_request"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employee_request"
             }
           }
         ],
@@ -297,13 +338,110 @@
           "201": {
             "description": "Employee created",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employee_response"
             }
           },
           "422": {
             "description": "Invalid request",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+            }
+          }
+        }
+      }
+    },
+    "/auth/sign_in": {
+      "post": {
+        "summary": "Login employee",
+        "tags": [
+          "Authentication"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "employee_login",
+            "in": "body",
+            "schema": {
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employee_login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns employee authenticated",
+            "schema": {
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employee_response"
+            }
+          },
+          "401": {
+            "description": "Returns bad credentials message",
+            "schema": {
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+            }
+          }
+        }
+      }
+    },
+    "/auth/sign_out": {
+      "delete": {
+        "summary": "Logout employee",
+        "tags": [
+          "Authentication"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "token_type",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "client",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "uid",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "expiry",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Logouts user",
+            "schema": {
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/meta"
+            }
+          },
+          "404": {
+            "description": "Returns bad credentials message",
+            "schema": {
+              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
             }
           }
         }

@@ -1,0 +1,16 @@
+{
+  "description": "Representation of an employee login body",
+  "type" : "object",
+  "required": [
+    "email",
+    "password"
+  ],
+  "properties" :{
+    "email": { 
+      "type": "string",
+      "description": "Email of employee" },
+    "password": { 
+      "type": "string",
+      "description": "Password of the employee" }
+  }
+}

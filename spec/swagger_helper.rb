@@ -21,10 +21,35 @@ RSpec.configure do |config|
         version: 'v1'
       },
 
+      "securityDefinitions": {
+        "client": {
+          "type": "apiKey",
+          "name": "client",
+          "in": "header"
+        },
+        "access-token": {
+          "type": "apiKey",
+          "name": "access-token",
+          "in": "header"
+        },
+        "uid": {
+          "type": "apiKey",
+          "name": "uid",
+          "in": "header"
+        }
+      },
+      # "security": [
+      #   {
+      #     "client": [],
+      #     "access-token": [],
+      #     "uid": []
+      #   }
+      # ],
       definitions: {
       },
 
-      paths: {}
+      paths: {},
+
     }
   }
 end

@@ -1,5 +1,10 @@
 # README
 
+#### Dependencies
+
+- Postgres `9.6`
+- Rails `5.1.3`
+- Ruby `2.3.5`
 
 #### Setup
 
@@ -14,10 +19,13 @@ Environment variables
 
 #### Test Suite
 
+`rails s` # Need this to get path to schemas.
 `bundle exec rspec`
 
 
-#### Deploy
+#### Deployment
+
+Using Heroku.
 
 First deploy
 
@@ -40,7 +48,12 @@ heroku run rake db:migrate
 
 #### TODO
 
-- Reuse schemas.
+1. Reuse json schemas 
+2. Reference json schemas without running the server.
+3. Install rswag not in production. (Related to point 2.) With this rspec-rails is not needed in production neither.
+4. Generate seed data.
+5. Namespace `api`
+
 
 ---
 

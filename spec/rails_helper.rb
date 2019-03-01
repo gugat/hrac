@@ -63,6 +63,7 @@ RSpec.configure do |config|
 
   config.include ExpectedResponseHelper::Assistance, type: :request
   config.include ExpectedResponseHelper::Employee, type: :request
+  config.include ExpectedResponseHelper::Authentication, type: :request
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

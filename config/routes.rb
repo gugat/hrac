@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'Employee', at: 'auth', controllers: {
-    sessions:  'overrides/sessions'
-  }
+  mount_devise_token_auth_for 'Employee',
+                              at: 'auth',
+                              skip: %i[registrations],
+                              controllers: {
+                                sessions: 'overrides/sessions'
+                              }
 
   #
   # Api documentation
