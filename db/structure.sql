@@ -95,7 +95,8 @@ CREATE TABLE public.employees (
     provider character varying DEFAULT 'email'::character varying NOT NULL,
     uid character varying DEFAULT ''::character varying NOT NULL,
     tokens text,
-    encrypted_password character varying DEFAULT ''::character varying NOT NULL
+    encrypted_password character varying DEFAULT ''::character varying NOT NULL,
+    role integer DEFAULT 0
 );
 
 
@@ -207,6 +208,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190226015501'),
 ('20190226031815'),
 ('20190227230803'),
-('20190227231820');
+('20190227231820'),
+('20190301125706');
 
 

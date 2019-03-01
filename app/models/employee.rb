@@ -1,5 +1,7 @@
 # :nodoc:
 class Employee < ApplicationRecord
+
+  enum role: [:staff, :admin]
             # Include default devise modules.
             devise :database_authenticatable, :registerable#,
                 #     :recoverable, :rememberable, :trackable, :validatable,
