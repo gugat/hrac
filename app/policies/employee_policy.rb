@@ -18,4 +18,8 @@ class EmployeePolicy < ApplicationPolicy
   def create?
     current_employee.admin?
   end
+
+  def list_assistances?
+    current_employee.admin? || (current_employee.id == other_employee.id)
+  end
 end

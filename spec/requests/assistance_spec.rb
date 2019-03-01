@@ -6,7 +6,7 @@ describe 'Assistances API' do
 
   include_context 'shared auth'
 
-  let!(:employer) { create(:employee) }
+  let!(:employer) { create(:employee, :admin) }
   let!(:employee) { create(:employee) }
   let!(:assistances) { create_list(:assistance, 5, employee_id: employee.id) }
   let(:employee_id) { employee.id }
@@ -54,6 +54,17 @@ describe 'Assistances API' do
         run_test! do 
           json = JSON.parse(response.body)
           expect(json).to include_json(not_found_employee_message(employee_id))
+        end
+      end
+
+      response '403', 'Not authorized to list assistances' do
+        schema '$ref' => schema_url('errors')
+        let(:headers) { employee.create_new_auth_token }
+        let(:other_employee) { create(:employee) }
+        let(:employee_id) { other_employee.id }
+        run_test! do 
+          json = JSON.parse(response.body)
+          expect(json).to include_json(not_authorized_error)
         end
       end
     end

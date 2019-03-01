@@ -4,11 +4,13 @@ class AssistancesController < ApplicationController
   before_action :set_employee, only: %i[index create]
 
   def index
+    authorize @employee, :list_assistances?
     assistances = @employee.assistances
     render json: serialize(assistances), status: 200
   end
 
   def create
+    authorize Assistance
     @assistance = @employee.assistances.create!(assistance_params)
     render json: serialize(@assistance), status: 201
   end
@@ -26,7 +28,5 @@ class AssistancesController < ApplicationController
   def serialize(assistance)
     AssistanceSerializer.new(assistance).serialized_json
   end
-
-  
 
 end

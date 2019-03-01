@@ -40,4 +40,19 @@ describe EmployeePolicy do
       expect(subject).to permit(admin)
     end
   end
+
+  permissions :list_assistances? do
+    it 'prevents other employees to see your assistances' do
+      expect(subject).not_to permit(current_employee, other_employee)
+    end
+
+    it 'allows to see your assistances' do
+      expect(subject).to permit(current_employee, current_employee)
+    end
+
+    it 'allows and admin to list assistances of other employee' do
+      expect(subject).to permit(admin, other_employee)
+    end
+  end
+
 end
