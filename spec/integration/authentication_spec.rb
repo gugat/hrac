@@ -20,7 +20,7 @@ describe 'Whether access is ocurring properly', type: :request do
 
   context 'context: general authentication via API, ' do
     it "doesn't give you anything if you don't log in" do
-      get '/employees'
+      get "/employees/#{@current_employee.id}"
       expect(response.status).to eq(401)
     end
 
@@ -42,7 +42,7 @@ describe 'Whether access is ocurring properly', type: :request do
     it 'first get a token, then access a restricted page' do
       login
       auth_params = get_auth_params_from_login_response_headers(response)
-      get '/employees', headers: auth_params
+      get "/employees/#{@current_employee.id}", headers: auth_params
       expect(response).to have_http_status(:success)
     end
 
@@ -54,7 +54,7 @@ describe 'Whether access is ocurring properly', type: :request do
             h[k] = '123'
           end end
       end
-      get '/employees', headers: auth_params
+      get "/employees/#{@current_employee.id}", headers: auth_params
       expect(response).not_to have_http_status(:success)
     end
   end
@@ -69,12 +69,12 @@ describe 'Whether access is ocurring properly', type: :request do
     def vary_authentication_age(token_age)
       login
       auth_params = get_auth_params_from_login_response_headers(response)
-      get '/employees', headers: auth_params
+      get "/employees/#{@current_employee.id}", headers: auth_params
       expect(response).to have_http_status(:success)
 
       allow(Time).to receive(:now).and_return(Time.now + token_age)
 
-      get '/employees', headers: auth_params
+      get "/employees/#{@current_employee.id}", headers: auth_params
       response
     end
   end

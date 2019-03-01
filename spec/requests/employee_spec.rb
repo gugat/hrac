@@ -6,7 +6,7 @@ describe 'Employees API' do
 
   let!(:employees) { create_list(:employee, 5) }
   let!(:employee) { employees.last }
-  let!(:employer) { employees.first }
+  let!(:admin) { create(:employee, :admin) }
   let(:employee_id) { employee.id }
 
   # Valid attributes
@@ -30,7 +30,7 @@ describe 'Employees API' do
   end
 
   # Generate authentication headers
-  let(:headers) { employer.create_new_auth_token }
+  let(:headers) { admin.create_new_auth_token }
 
   path '/employees/{employee_id}' do
 
@@ -58,6 +58,16 @@ describe 'Employees API' do
         end
       end
 
+      response '403', 'Not authorized to see an employee' do
+        schema '$ref' => schema_url('errors')
+        let(:headers) { employee.create_new_auth_token }
+        let(:employee_id) { employees[2].id }
+        run_test! do
+          json = JSON.parse(response.body)
+          expect(json).to include_json(not_authorized_error)
+        end
+      end
+
     end
   end
 
@@ -73,9 +83,19 @@ describe 'Employees API' do
         let(:employee_id) { employee.id }
         run_test! do
           json = JSON.parse(response.body)
-          expect(json['data'].size).to eq(5)
+          expect(json['data'].size).to eq(6)
         end
       end
+
+      response '403', 'Not authorized to list employees' do
+        schema '$ref' => schema_url('errors')
+        let(:headers) { employee.create_new_auth_token }
+        run_test! do
+          json = JSON.parse(response.body)
+          expect(json).to include_json(not_authorized_error)
+        end
+      end
+
     end
 
     post 'Add a new employee' do
@@ -104,6 +124,16 @@ describe 'Employees API' do
           expect(json).to include_json(invalid_params_employee_message)
         end
       end
+
+      response '403', 'Not authorized to create an employee' do
+        schema '$ref' => schema_url('errors')
+        let(:headers) { employee.create_new_auth_token }
+        run_test! do
+          json = JSON.parse(response.body)
+          expect(json).to include_json(not_authorized_error)
+        end
+      end
+
     end
   end
 end
