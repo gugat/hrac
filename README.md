@@ -53,6 +53,8 @@ heroku run rake db:migrate
 3. Install rswag not in production. (Related to point 2.) With this rspec-rails is not needed in production neither.
 4. Generate seed data.
 5. Namespace `api`
+6. Analyze handling WorkDay attribute `day` as string like `2019-02-26`
+7. Queue `set_worked_hours`
 
 
 ---

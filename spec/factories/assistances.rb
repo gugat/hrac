@@ -3,5 +3,9 @@ FactoryBot.define do
     happening_at { Faker::Time.between(0.days.ago, Date.today, :morning) }
     kind { 'in' }
     employee
+
+    trait :out do
+      kind { 'out' }
+    end
   end
 end

@@ -129,6 +129,39 @@ CREATE TABLE public.schema_migrations (
 
 
 --
+-- Name: work_days; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.work_days (
+    id bigint NOT NULL,
+    day timestamp without time zone,
+    total_hours double precision,
+    employee_id bigint,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: work_days_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.work_days_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: work_days_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.work_days_id_seq OWNED BY public.work_days.id;
+
+
+--
 -- Name: assistances id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -140,6 +173,13 @@ ALTER TABLE ONLY public.assistances ALTER COLUMN id SET DEFAULT nextval('public.
 --
 
 ALTER TABLE ONLY public.employees ALTER COLUMN id SET DEFAULT nextval('public.employees_id_seq'::regclass);
+
+
+--
+-- Name: work_days id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_days ALTER COLUMN id SET DEFAULT nextval('public.work_days_id_seq'::regclass);
 
 
 --
@@ -175,6 +215,14 @@ ALTER TABLE ONLY public.schema_migrations
 
 
 --
+-- Name: work_days work_days_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_days
+    ADD CONSTRAINT work_days_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: index_assistances_on_employee_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -189,11 +237,26 @@ CREATE UNIQUE INDEX index_employees_on_uid_and_provider ON public.employees USIN
 
 
 --
+-- Name: index_work_days_on_employee_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_work_days_on_employee_id ON public.work_days USING btree (employee_id);
+
+
+--
 -- Name: assistances fk_rails_50b4b716bd; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.assistances
     ADD CONSTRAINT fk_rails_50b4b716bd FOREIGN KEY (employee_id) REFERENCES public.employees(id);
+
+
+--
+-- Name: work_days fk_rails_64f64b0686; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_days
+    ADD CONSTRAINT fk_rails_64f64b0686 FOREIGN KEY (employee_id) REFERENCES public.employees(id);
 
 
 --
@@ -209,6 +272,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190226031815'),
 ('20190227230803'),
 ('20190227231820'),
-('20190301125706');
+('20190301125706'),
+('20190301220557');
 
 
