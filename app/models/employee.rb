@@ -11,6 +11,7 @@ class Employee < ApplicationRecord
   # Associations
   has_many :assistances
   has_many :work_days
+  has_many :anomalies
 
   # Validations
   validates_presence_of :first_name, :last_name, :email#, :password

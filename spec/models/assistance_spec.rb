@@ -15,12 +15,12 @@ RSpec.describe Assistance, type: :model do
 
     context 'when an assistance is created' do
       it 'sets worked hours' do
-        expect{ create(:assistance, :out) }.to change { WorkDay.count }.by(1)
+        expect{ create(:assistance, :exit) }.to change { WorkDay.count }.by(1)
       end
     end
 
     context 'when an assistance is updated' do
-      let(:assistance){ create(:assistance, :out) }
+      let(:assistance){ create(:assistance, :exit) }
       let(:new_date){ Time.now }
 
       it 'updates worked hours' do

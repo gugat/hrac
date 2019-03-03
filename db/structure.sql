@@ -37,6 +37,43 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: anomalies; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.anomalies (
+    id bigint NOT NULL,
+    absence boolean,
+    arrived_late boolean,
+    worked_too_short boolean,
+    finished_too_early boolean,
+    incomplete_assistances boolean,
+    day timestamp without time zone,
+    employee_id bigint,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: anomalies_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.anomalies_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: anomalies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.anomalies_id_seq OWNED BY public.anomalies.id;
+
+
+--
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -162,6 +199,13 @@ ALTER SEQUENCE public.work_days_id_seq OWNED BY public.work_days.id;
 
 
 --
+-- Name: anomalies id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.anomalies ALTER COLUMN id SET DEFAULT nextval('public.anomalies_id_seq'::regclass);
+
+
+--
 -- Name: assistances id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -180,6 +224,14 @@ ALTER TABLE ONLY public.employees ALTER COLUMN id SET DEFAULT nextval('public.em
 --
 
 ALTER TABLE ONLY public.work_days ALTER COLUMN id SET DEFAULT nextval('public.work_days_id_seq'::regclass);
+
+
+--
+-- Name: anomalies anomalies_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.anomalies
+    ADD CONSTRAINT anomalies_pkey PRIMARY KEY (id);
 
 
 --
@@ -220,6 +272,13 @@ ALTER TABLE ONLY public.schema_migrations
 
 ALTER TABLE ONLY public.work_days
     ADD CONSTRAINT work_days_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_anomalies_on_employee_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_anomalies_on_employee_id ON public.anomalies USING btree (employee_id);
 
 
 --
@@ -273,6 +332,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190227230803'),
 ('20190227231820'),
 ('20190301125706'),
-('20190301220557');
+('20190301220557'),
+('20190302002837');
 
 

@@ -55,6 +55,8 @@ heroku run rake db:migrate
 5. Namespace `api`
 6. Analyze handling WorkDay attribute `day` as string like `2019-02-26`
 7. Queue `set_worked_hours`
+8. Validate can not create an assistance of kind 'out' before one of kind 'in'
+9. Take config params from schedule.yml to define Factories for assistances and workdays.
 
 
 ---

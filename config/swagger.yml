@@ -4,6 +4,6 @@ production:
 development:
   schemas_host: 'http://localhost:3000'
 
-  test:
+test:
   schemas_host: 'http://localhost:3000'
 
