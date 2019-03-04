@@ -1,0 +1,69 @@
+{
+  "description": "Representation of employee journey report response body",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data" : {
+      "type" : "array",
+      "items" :{
+        "type": "object",
+        "required": ["id", "type", "attributes"],
+        "properties": {
+          "id": { 
+                  "type": "string", 
+                  "description": "Unique identifier of the journey" 
+                },
+          "type": { 
+                    "type": "string",
+                    "description": "Journey"
+                  },
+          "attributes": {
+            "type": "object",
+            "required": ["day", "assistances", "anomalies", "worked_hours"],
+            "properties": {
+              "day": {
+                "type": "string"
+              },
+              "assistances": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["type", "time"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Type of the assistance",
+                      "enum": ["entry", "exit"]
+                    },
+                    "time": {
+                      "type": "string",
+                      "description": "Hour and minute of the assistance"
+                    }
+                  }
+                }
+              },
+              "anomalies": {
+                "type": "object",
+                "required": ["absence", 
+                            "arrived_late", 
+                            "worked_too_short", 
+                            "finished_too_early",
+                            "incomplete_assistances" ],
+                "properties": {
+                  "absence": { "type": "boolean" },
+                  "arrived_late": { "type": "boolean" },
+                  "worked_too_short": { "type": "boolean" },
+                  "finished_too_early": { "type": "boolean" },
+                  "incomplete_assistances": { "type": "boolean" }
+                }
+              },
+              "worked_hours": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

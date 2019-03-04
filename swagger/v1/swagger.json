@@ -79,19 +79,19 @@
           "200": {
             "description": "Return multiple employee assistances",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/assistances_response"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistances_response"
             }
           },
           "404": {
             "description": "Employee not found",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
             }
           },
           "403": {
             "description": "Not authorized to list assistances",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -150,7 +150,7 @@
             "in": "body",
             "require": true,
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/assistance_request"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistance_request"
             }
           }
         ],
@@ -158,13 +158,13 @@
           "201": {
             "description": "Assistance created",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/assistance_response"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistance_response"
             }
           },
           "422": {
             "description": "Invalid request",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -224,19 +224,19 @@
           "200": {
             "description": "Returns a single employee",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employee_response"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
             }
           },
           "404": {
             "description": "Employee not found",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
             }
           },
           "403": {
             "description": "Not authorized to see an employee",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -290,13 +290,13 @@
           "200": {
             "description": "Return multiple employees",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employees_response"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/employees_response"
             }
           },
           "403": {
             "description": "Not authorized to list employees",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -348,7 +348,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employee_request"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_request"
             }
           }
         ],
@@ -356,19 +356,103 @@
           "201": {
             "description": "Employee created",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employee_response"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
             }
           },
           "422": {
             "description": "Invalid request",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
             }
           },
           "403": {
             "description": "Not authorized to create an employee",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            }
+          }
+        }
+      }
+    },
+    "/reports/{employee_id}/journeys?start_date={start_date}&end_date={end_date}": {
+      "get": {
+        "summary": "Get journey by employee",
+        "tags": [
+          "Reports"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "employee_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "start_date",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "end_date",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "token_type",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "client",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "uid",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "expiry",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns journes by employee in the given date range",
+            "schema": {
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/journeys_response"
+            }
+          },
+          "404": {
+            "description": "Employee not found",
+            "schema": {
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            }
+          },
+          "403": {
+            "description": "Not authorized to see an employee",
+            "schema": {
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -391,7 +475,7 @@
             "name": "employee_login",
             "in": "body",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employee_login"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_login"
             }
           }
         ],
@@ -399,13 +483,13 @@
           "200": {
             "description": "Returns employee authenticated",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/employee_response"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
             }
           },
           "401": {
             "description": "Returns bad credentials message",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
             }
           }
         }
@@ -459,13 +543,13 @@
           "200": {
             "description": "Logouts user",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/meta"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/meta"
             }
           },
           "404": {
             "description": "Returns bad credentials message",
             "schema": {
-              "$ref": "https://rhac.herokuapp.com/api-docs/v1/schemas/errors"
+              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
             }
           }
         }

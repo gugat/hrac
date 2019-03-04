@@ -30,4 +30,14 @@ RSpec.describe Assistance, type: :model do
     end
 
   end
+
+  describe 'scopes' do
+    let(:employee) { create(:employee) }
+    let(:base_date) { DateTime.now }
+    let(:final_date) { base_date + 1.day }
+    it '.by_day returns all assistances in the given date range' do
+      generate_assistances_with_one_day_difference
+      expect(employee.assistances.by_day(base_date, final_date).count).to eq(2)
+    end
+  end
 end

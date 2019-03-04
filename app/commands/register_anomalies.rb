@@ -1,6 +1,5 @@
 class RegisterAnomalies < PowerTypes::Command.new(:employee, :day)
 
-
   def perform
     service = EmployeeAnomaliesService.new(@employee, @day)
     Anomaly.create!(
@@ -9,7 +8,7 @@ class RegisterAnomalies < PowerTypes::Command.new(:employee, :day)
       arrived_late: service.arrived_late?,
       finished_too_early: service.finished_too_early?,
       incomplete_assistances: service.incomplete_assistances?,
-      day: @day,
+      day: @day.midnight,
       employee: @employee
     )
   end

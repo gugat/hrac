@@ -9,9 +9,7 @@ describe RegisterAnomalies do
     described_class.for(employee: employee, day: day)
   end
 
-
   context 'Given and employee and a day' do
-    
     it 'registers anomalies' do
       allow_any_instance_of(EmployeeAnomaliesService).to receive(:absence?) { true }
       allow_any_instance_of(EmployeeAnomaliesService).to receive(:worked_too_short?) { true }

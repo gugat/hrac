@@ -1,6 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'database_cleaner'
 require 'spec_helper'
+require 'awesome_print'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
@@ -13,6 +14,9 @@ require 'rspec/json_expectations'
 require "json_matchers/rspec"
 require 'pundit/rspec'
 require 'authentication_helper'
+require 'assistances_helper'
+require 'anomalies_helper'
+require 'work_days_helper'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -47,7 +51,7 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-Dir[Rails.root.join('spec/support/api/responses/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/support/api/responses/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
@@ -66,6 +70,7 @@ RSpec.configure do |config|
   config.include ExpectedResponseHelper::Employee, type: :request
   config.include ExpectedResponseHelper::Authentication, type: :request
   config.include ExpectedResponseHelper::Authorization, type: :request
+  config.include ExpectedResponseHelper::Reports::Journey, type: :request
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

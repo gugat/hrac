@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get 'schemas/:name', to: 'schemas#show', as: 'schema'
   end
 
+
   #
   # Resources
   #
@@ -29,4 +30,7 @@ Rails.application.routes.draw do
     resources :assistances, only: [:index, :create]
   end
 
+  # Reports
+
+  get '/reports/:employee_id/journeys', to: 'reports/journeys#show', as: 'journey_report'
 end

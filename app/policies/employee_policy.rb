@@ -22,4 +22,8 @@ class EmployeePolicy < ApplicationPolicy
   def list_assistances?
     current_employee.admin? || (current_employee.id == other_employee.id)
   end
+
+  def show_journeys_report?
+    current_employee.admin? || (current_employee.id == other_employee.id)
+  end
 end
