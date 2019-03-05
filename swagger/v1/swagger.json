@@ -80,18 +80,126 @@
             "description": "Return multiple employee assistances",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/assistances_response"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "1",
+                    "type": "assistance",
+                    "attributes": {
+                      "kind": "in",
+                      "happening_at": "2019-03-05T00:00:00-03:00"
+                    },
+                    "relationships": {
+                      "employee": {
+                        "data": {
+                          "id": "10",
+                          "type": "employee"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "2",
+                    "type": "assistance",
+                    "attributes": {
+                      "kind": "in",
+                      "happening_at": "2019-03-05T00:00:00-03:00"
+                    },
+                    "relationships": {
+                      "employee": {
+                        "data": {
+                          "id": "10",
+                          "type": "employee"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "3",
+                    "type": "assistance",
+                    "attributes": {
+                      "kind": "in",
+                      "happening_at": "2019-03-05T00:00:00-03:00"
+                    },
+                    "relationships": {
+                      "employee": {
+                        "data": {
+                          "id": "10",
+                          "type": "employee"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "4",
+                    "type": "assistance",
+                    "attributes": {
+                      "kind": "in",
+                      "happening_at": "2019-03-05T00:00:00-03:00"
+                    },
+                    "relationships": {
+                      "employee": {
+                        "data": {
+                          "id": "10",
+                          "type": "employee"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "5",
+                    "type": "assistance",
+                    "attributes": {
+                      "kind": "in",
+                      "happening_at": "2019-03-05T00:00:00-03:00"
+                    },
+                    "relationships": {
+                      "employee": {
+                        "data": {
+                          "id": "10",
+                          "type": "employee"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
             }
           },
           "404": {
             "description": "Employee not found",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "Record not found",
+                    "detail": "Couldn't find Employee with 'id'=2000",
+                    "code": "404"
+                  }
+                ]
+              }
             }
           },
           "403": {
             "description": "Not authorized to list assistances",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "Authorization error",
+                    "detail": "You are not authorized to perform this action",
+                    "code": "403"
+                  }
+                ]
+              }
             }
           }
         }
@@ -159,12 +267,43 @@
             "description": "Assistance created",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/assistance_response"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "21",
+                  "type": "assistance",
+                  "attributes": {
+                    "kind": "in",
+                    "happening_at": "2019-03-05T12:06:00-03:00"
+                  },
+                  "relationships": {
+                    "employee": {
+                      "data": {
+                        "id": "17",
+                        "type": "employee"
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           "422": {
             "description": "Invalid request",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "Invalid record parameters",
+                    "detail": "Validation failed: Kind can't be blank",
+                    "code": "422"
+                  }
+                ]
+              }
             }
           }
         }
@@ -225,18 +364,53 @@
             "description": "Returns a single employee",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "24",
+                  "type": "employee",
+                  "attributes": {
+                    "first_name": "Wayne",
+                    "last_name": "Block",
+                    "email": "keila@becker.com"
+                  }
+                }
+              }
             }
           },
           "404": {
             "description": "Employee not found",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "Record not found",
+                    "detail": "Couldn't find Employee with 'id'=2000",
+                    "code": "404"
+                  }
+                ]
+              }
             }
           },
           "403": {
             "description": "Not authorized to see an employee",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "Authorization error",
+                    "detail": "You are not authorized to perform this action",
+                    "code": "403"
+                  }
+                ]
+              }
             }
           }
         }
@@ -291,12 +465,83 @@
             "description": "Return multiple employees",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/employees_response"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "38",
+                    "type": "employee",
+                    "attributes": {
+                      "first_name": "Madelene",
+                      "last_name": "Boyer",
+                      "email": "millardklein@boehmshanahan.com"
+                    }
+                  },
+                  {
+                    "id": "39",
+                    "type": "employee",
+                    "attributes": {
+                      "first_name": "Griselda",
+                      "last_name": "Sipes",
+                      "email": "jameskunze@gutkowski.name"
+                    }
+                  },
+                  {
+                    "id": "40",
+                    "type": "employee",
+                    "attributes": {
+                      "first_name": "Jen",
+                      "last_name": "Collins",
+                      "email": "hueywaters@grant.biz"
+                    }
+                  },
+                  {
+                    "id": "41",
+                    "type": "employee",
+                    "attributes": {
+                      "first_name": "Hilde",
+                      "last_name": "McDermott",
+                      "email": "suzanna@reingerpacocha.biz"
+                    }
+                  },
+                  {
+                    "id": "42",
+                    "type": "employee",
+                    "attributes": {
+                      "first_name": "Star",
+                      "last_name": "Gulgowski",
+                      "email": "tuyethaley@gaylord.co"
+                    }
+                  },
+                  {
+                    "id": "43",
+                    "type": "employee",
+                    "attributes": {
+                      "first_name": "Avelina",
+                      "last_name": "Bechtelar",
+                      "email": "curt@hudson.name"
+                    }
+                  }
+                ]
+              }
             }
           },
           "403": {
             "description": "Not authorized to list employees",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "Authorization error",
+                    "detail": "You are not authorized to perform this action",
+                    "code": "403"
+                  }
+                ]
+              }
             }
           }
         }
@@ -357,18 +602,53 @@
             "description": "Employee created",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "56",
+                  "type": "employee",
+                  "attributes": {
+                    "first_name": "Gus",
+                    "last_name": "Sal",
+                    "email": "gussal@example.com"
+                  }
+                }
+              }
             }
           },
           "422": {
             "description": "Invalid request",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "Invalid record parameters",
+                    "detail": "Validation failed: Last name can't be blank",
+                    "code": "422"
+                  }
+                ]
+              }
             }
           },
           "403": {
             "description": "Not authorized to create an employee",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "Authorization error",
+                    "detail": "You are not authorized to perform this action",
+                    "code": "403"
+                  }
+                ]
+              }
             }
           }
         }
@@ -441,18 +721,79 @@
             "description": "Returns journes by employee in the given date range",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/journeys_response"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "d03a870e9c62cf293ad1999a72add940",
+                    "type": "journey",
+                    "attributes": {
+                      "day": "2019-03-05",
+                      "assistances": [
+                        {
+                          "type": "entry",
+                          "time": "08:00"
+                        },
+                        {
+                          "type": "exit",
+                          "time": "13:00"
+                        },
+                        {
+                          "type": "entry",
+                          "time": "15:00"
+                        },
+                        {
+                          "type": "exit",
+                          "time": "18:00"
+                        }
+                      ],
+                      "anomalies": {
+                        "absence": false,
+                        "arrived_late": false,
+                        "worked_too_short": false,
+                        "finished_too_early": false,
+                        "incomplete_assistances": false
+                      },
+                      "worked_hours": 8.0
+                    }
+                  }
+                ]
+              }
             }
           },
           "404": {
             "description": "Employee not found",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "Record not found",
+                    "detail": "Couldn't find Employee with 'id'=2000",
+                    "code": "404"
+                  }
+                ]
+              }
             }
           },
           "403": {
             "description": "Not authorized to see an employee",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "Authorization error",
+                    "detail": "You are not authorized to perform this action",
+                    "code": "403"
+                  }
+                ]
+              }
             }
           }
         }
@@ -484,12 +825,36 @@
             "description": "Returns employee authenticated",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "75",
+                  "type": "employee",
+                  "attributes": {
+                    "first_name": "Trista",
+                    "last_name": "Bogisich",
+                    "email": "cheryltreutel@quigleyluettgen.org"
+                  }
+                }
+              }
             }
           },
           "401": {
             "description": "Returns bad credentials message",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "Bad authentication",
+                    "detail": "Invalid login credentials",
+                    "code": "401"
+                  }
+                ]
+              }
             }
           }
         }
@@ -544,12 +909,33 @@
             "description": "Logouts user",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/meta"
+            },
+            "examples": {
+              "application/json": {
+                "meta": {
+                  "copyright": "Copyright 2019 RHA Corp",
+                  "author": [
+                    "Guga Salazar"
+                  ]
+                }
+              }
             }
           },
           "404": {
             "description": "Returns bad credentials message",
             "schema": {
               "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "title": "Bad credentials",
+                    "detail": "User was not found or was not logged in",
+                    "code": "404"
+                  }
+                ]
+              }
             }
           }
         }

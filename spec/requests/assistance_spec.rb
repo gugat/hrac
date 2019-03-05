@@ -6,6 +6,9 @@ describe 'Assistances API' do
 
   include_context 'shared auth'
 
+  # Enable generation of examples with request responses for each test
+  generate_examples_with_responses
+
   let!(:employer) { create(:employee, :admin) }
   let!(:employee) { create(:employee) }
   let!(:assistances) { create_list(:assistance, 5, employee_id: employee.id) }

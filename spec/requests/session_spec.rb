@@ -4,6 +4,9 @@ describe 'Authentication API' do
 
   include_context 'shared auth'
 
+  # Enable generation of examples with request responses for each test
+  generate_examples_with_responses
+
   let!(:employee) { create(:employee) }
 
   # Valid attributes
