@@ -275,7 +275,7 @@
                   "type": "assistance",
                   "attributes": {
                     "kind": "in",
-                    "happening_at": "2019-03-05T15:05:57-03:00"
+                    "happening_at": "2019-03-05T15:33:36-03:00"
                   },
                   "relationships": {
                     "employee": {
@@ -371,9 +371,9 @@
                   "id": "24",
                   "type": "employee",
                   "attributes": {
-                    "first_name": "Jade",
-                    "last_name": "Spencer",
-                    "email": "youlandatorphy@carroll.org"
+                    "first_name": "Raisa",
+                    "last_name": "Konopelski",
+                    "email": "rueben@tromp.biz"
                   }
                 }
               }
@@ -473,54 +473,54 @@
                     "id": "38",
                     "type": "employee",
                     "attributes": {
-                      "first_name": "Celestina",
-                      "last_name": "Tremblay",
-                      "email": "margarito@balistreri.biz"
+                      "first_name": "Elias",
+                      "last_name": "Koepp",
+                      "email": "agustin@wyman.org"
                     }
                   },
                   {
                     "id": "39",
                     "type": "employee",
                     "attributes": {
-                      "first_name": "Alta",
-                      "last_name": "Goodwin",
-                      "email": "emiledonnelly@bahringer.info"
+                      "first_name": "Dedra",
+                      "last_name": "Kshlerin",
+                      "email": "destinyritchie@stammfeil.com"
                     }
                   },
                   {
                     "id": "40",
                     "type": "employee",
                     "attributes": {
-                      "first_name": "Deanna",
-                      "last_name": "Bednar",
-                      "email": "myriamvonrueden@pollichdare.net"
+                      "first_name": "Emory",
+                      "last_name": "Kemmer",
+                      "email": "catrice@gislason.io"
                     }
                   },
                   {
                     "id": "41",
                     "type": "employee",
                     "attributes": {
-                      "first_name": "Dian",
-                      "last_name": "Heathcote",
-                      "email": "lesleyhartmann@treutel.com"
+                      "first_name": "Adan",
+                      "last_name": "Quitzon",
+                      "email": "conchabechtelar@prohaskarunolfon.co"
                     }
                   },
                   {
                     "id": "42",
                     "type": "employee",
                     "attributes": {
-                      "first_name": "Stanford",
-                      "last_name": "Langosh",
-                      "email": "ileana@franecki.net"
+                      "first_name": "Emmanuel",
+                      "last_name": "Hessel",
+                      "email": "gusbeahan@ruel.org"
                     }
                   },
                   {
                     "id": "43",
                     "type": "employee",
                     "attributes": {
-                      "first_name": "Betsey",
-                      "last_name": "Littel",
-                      "email": "judeleuschke@stammhackett.info"
+                      "first_name": "Aleshia",
+                      "last_name": "Schuster",
+                      "email": "francina@mitchell.net"
                     }
                   }
                 ]
@@ -832,9 +832,9 @@
                   "id": "75",
                   "type": "employee",
                   "attributes": {
-                    "first_name": "Brendan",
-                    "last_name": "Anderson",
-                    "email": "kristopherlegros@friesen.biz"
+                    "first_name": "Brice",
+                    "last_name": "Emard",
+                    "email": "ben@gleasonsanford.org"
                   }
                 }
               }
