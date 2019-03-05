@@ -1,5 +1,6 @@
 default: &default
   schemas_path: <%= "#{Rails.root}/spec/support/api/schemas/" %>
+  schemas_host: 'http://localhost:3000'
 
 development:
   <<: *default
@@ -9,3 +10,4 @@ test:
   
 production:
   <<: *default
+  schemas_host: <%= ENV["SCHEMAS_HOST"] %>
