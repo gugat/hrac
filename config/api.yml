@@ -1,0 +1,11 @@
+default: &default
+  schemas_path: <%= "#{Rails.root}/spec/support/api/schemas/" %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  
+production:
+  <<: *default

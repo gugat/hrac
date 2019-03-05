@@ -52,6 +52,28 @@ RSpec.configure do |config|
 
     }
   }
+
+  #
+  # Stub request calls to schemas url returning the file content
+  #
+  config.before(:each) do
+    config = Rails.application.config_for(:api)
+    schemas_path = config['schemas_path']
+    stub_request(:get, /schemas/).
+      with(headers: {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
+      to_return(
+        lambda { |request|
+          schema_name = URI.parse(request.uri).path.split('/').last
+          schema_file = "#{schemas_path}/#{schema_name}.json"
+          { 
+            status: 200, 
+            body: File.read(schema_file), 
+            headers: {}
+          }
+        }
+      )
+  end
+
 end
 
 def generate_examples_with_responses

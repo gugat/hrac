@@ -47,6 +47,7 @@ group :test do
   gem "json_matchers"
   gem 'rspec-json_expectations'
   gem 'rswag-specs'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
