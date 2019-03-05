@@ -79,7 +79,7 @@
           "200": {
             "description": "Return multiple employee assistances",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistances_response"
+              "$ref": "https://rhac.herokuapp.com/schemas/assistances_response"
             },
             "examples": {
               "application/json": {
@@ -171,7 +171,7 @@
           "404": {
             "description": "Employee not found",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/schemas/errors"
             },
             "examples": {
               "application/json": {
@@ -188,7 +188,7 @@
           "403": {
             "description": "Not authorized to list assistances",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/schemas/errors"
             },
             "examples": {
               "application/json": {
@@ -258,7 +258,7 @@
             "in": "body",
             "require": true,
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistance_request"
+              "$ref": "https://rhac.herokuapp.com/schemas/assistance_request"
             }
           }
         ],
@@ -266,7 +266,7 @@
           "201": {
             "description": "Assistance created",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/assistance_response"
+              "$ref": "https://rhac.herokuapp.com/schemas/assistance_response"
             },
             "examples": {
               "application/json": {
@@ -275,7 +275,7 @@
                   "type": "assistance",
                   "attributes": {
                     "kind": "in",
-                    "happening_at": "2019-03-05T15:33:36-03:00"
+                    "happening_at": "2019-03-05T19:52:49-03:00"
                   },
                   "relationships": {
                     "employee": {
@@ -292,7 +292,7 @@
           "422": {
             "description": "Invalid request",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/schemas/errors"
             },
             "examples": {
               "application/json": {
@@ -363,7 +363,7 @@
           "200": {
             "description": "Returns a single employee",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
+              "$ref": "https://rhac.herokuapp.com/schemas/employee_response"
             },
             "examples": {
               "application/json": {
@@ -371,9 +371,9 @@
                   "id": "24",
                   "type": "employee",
                   "attributes": {
-                    "first_name": "Raisa",
-                    "last_name": "Konopelski",
-                    "email": "rueben@tromp.biz"
+                    "first_name": "Crysta",
+                    "last_name": "Windler",
+                    "email": "marya@adams.info"
                   }
                 }
               }
@@ -382,7 +382,7 @@
           "404": {
             "description": "Employee not found",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/schemas/errors"
             },
             "examples": {
               "application/json": {
@@ -399,7 +399,7 @@
           "403": {
             "description": "Not authorized to see an employee",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/schemas/errors"
             },
             "examples": {
               "application/json": {
@@ -464,7 +464,7 @@
           "200": {
             "description": "Return multiple employees",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/employees_response"
+              "$ref": "https://rhac.herokuapp.com/schemas/employees_response"
             },
             "examples": {
               "application/json": {
@@ -473,54 +473,54 @@
                     "id": "38",
                     "type": "employee",
                     "attributes": {
-                      "first_name": "Elias",
-                      "last_name": "Koepp",
-                      "email": "agustin@wyman.org"
+                      "first_name": "Sarina",
+                      "last_name": "Leannon",
+                      "email": "cameronconn@bahringerdurgan.org"
                     }
                   },
                   {
                     "id": "39",
                     "type": "employee",
                     "attributes": {
-                      "first_name": "Dedra",
-                      "last_name": "Kshlerin",
-                      "email": "destinyritchie@stammfeil.com"
+                      "first_name": "Gerard",
+                      "last_name": "Rosenbaum",
+                      "email": "kendrickkeeling@labadieerdman.com"
                     }
                   },
                   {
                     "id": "40",
                     "type": "employee",
                     "attributes": {
-                      "first_name": "Emory",
-                      "last_name": "Kemmer",
-                      "email": "catrice@gislason.io"
+                      "first_name": "Shizue",
+                      "last_name": "Rempel",
+                      "email": "sunniorn@kingdamore.net"
                     }
                   },
                   {
                     "id": "41",
                     "type": "employee",
                     "attributes": {
-                      "first_name": "Adan",
-                      "last_name": "Quitzon",
-                      "email": "conchabechtelar@prohaskarunolfon.co"
+                      "first_name": "Harland",
+                      "last_name": "Christiansen",
+                      "email": "nikita@cain.biz"
                     }
                   },
                   {
                     "id": "42",
                     "type": "employee",
                     "attributes": {
-                      "first_name": "Emmanuel",
-                      "last_name": "Hessel",
-                      "email": "gusbeahan@ruel.org"
+                      "first_name": "Cynthia",
+                      "last_name": "Rice",
+                      "email": "charlettekihn@bergstrom.info"
                     }
                   },
                   {
                     "id": "43",
                     "type": "employee",
                     "attributes": {
-                      "first_name": "Aleshia",
-                      "last_name": "Schuster",
-                      "email": "francina@mitchell.net"
+                      "first_name": "Tonette",
+                      "last_name": "McDermott",
+                      "email": "tena@stanton.net"
                     }
                   }
                 ]
@@ -530,7 +530,7 @@
           "403": {
             "description": "Not authorized to list employees",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/schemas/errors"
             },
             "examples": {
               "application/json": {
@@ -593,7 +593,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_request"
+              "$ref": "https://rhac.herokuapp.com/schemas/employee_request"
             }
           }
         ],
@@ -601,7 +601,7 @@
           "201": {
             "description": "Employee created",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
+              "$ref": "https://rhac.herokuapp.com/schemas/employee_response"
             },
             "examples": {
               "application/json": {
@@ -620,7 +620,7 @@
           "422": {
             "description": "Invalid request",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/schemas/errors"
             },
             "examples": {
               "application/json": {
@@ -637,7 +637,7 @@
           "403": {
             "description": "Not authorized to create an employee",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/schemas/errors"
             },
             "examples": {
               "application/json": {
@@ -720,7 +720,7 @@
           "200": {
             "description": "Returns journes by employee in the given date range",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/journeys_response"
+              "$ref": "https://rhac.herokuapp.com/schemas/journeys_response"
             },
             "examples": {
               "application/json": {
@@ -765,7 +765,7 @@
           "404": {
             "description": "Employee not found",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/schemas/errors"
             },
             "examples": {
               "application/json": {
@@ -782,7 +782,7 @@
           "403": {
             "description": "Not authorized to see an employee",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/schemas/errors"
             },
             "examples": {
               "application/json": {
@@ -816,7 +816,7 @@
             "name": "employee_login",
             "in": "body",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_login"
+              "$ref": "https://rhac.herokuapp.com/schemas/employee_login"
             }
           }
         ],
@@ -824,7 +824,7 @@
           "200": {
             "description": "Returns employee authenticated",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/employee_response"
+              "$ref": "https://rhac.herokuapp.com/schemas/employee_response"
             },
             "examples": {
               "application/json": {
@@ -832,9 +832,9 @@
                   "id": "75",
                   "type": "employee",
                   "attributes": {
-                    "first_name": "Brice",
-                    "last_name": "Emard",
-                    "email": "ben@gleasonsanford.org"
+                    "first_name": "Alton",
+                    "last_name": "Steuber",
+                    "email": "lorenastokes@waelchi.io"
                   }
                 }
               }
@@ -843,7 +843,7 @@
           "401": {
             "description": "Returns bad credentials message",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/schemas/errors"
             },
             "examples": {
               "application/json": {
@@ -908,7 +908,7 @@
           "200": {
             "description": "Logouts user",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/meta"
+              "$ref": "https://rhac.herokuapp.com/schemas/meta"
             },
             "examples": {
               "application/json": {
@@ -924,7 +924,7 @@
           "404": {
             "description": "Returns bad credentials message",
             "schema": {
-              "$ref": "http://localhost:3000/api-docs/v1/schemas/errors"
+              "$ref": "https://rhac.herokuapp.com/schemas/errors"
             },
             "examples": {
               "application/json": {

@@ -1,11 +1,11 @@
-# HRCA
+# HRAC
 
-`Human Resources Control Assistance` is an API that allows management of employees and their daily assistances to the office. 
+`Human Resources Assistance Control` is an API that allows management of employees and their daily assistances to the office. 
 
 See the [API documentation live](https://rhac.herokuapp.com/api-docs/index.html) 
 
 #### What you can do  
-The `HRCA API` allows you to: 
+The `HRAC API` allows you to: 
 
 - Control employees personal information.
 - Control assistances of your employees, entries and exits of the office.
@@ -32,9 +32,10 @@ There are two roles for employees: `admin` and `staff` each one is able to do di
 
 ### About the API
 
-- API responses follow [Json Api specification](https://jsonapi.org) 
-- Documentation uses [Swagger - (OpenAPI Specification V2.0)](https://swagger.io/specification/v2/)
-- See the [API documentation live](https://rhac.herokuapp.com/api-docs/index.html) with examples for each response.
+- *Responses* follow [Json Api specification](https://jsonapi.org) 
+- *Documentation* uses [Swagger - (OpenAPI Specification V2.0)](https://swagger.io/specification/v2/). See the [API documentation live](https://rhac.herokuapp.com/api-docs/index.html) with examples for each response.
+- *Authentication* is token based, handled with [Devise Token Auth](https://github.com/lynndylanhurley/devise_token_auth). See how [token management works](https://devise-token-auth.gitbook.io/devise-token-auth/conceptual). After logged in, every request must include [these headers](https://devise-token-auth.gitbook.io/devise-token-auth/usage/controller_methods#token-header-format): `access-token`, `client`, and `uid` which are sent in the login response.
+- *Versioning* is handled via [Media Type Specification](https://tools.ietf.org/html/rfc6838#section-3.2) via `Accept` header passing the version **application/vnd.hrac.`v1`+json**. Default version now is v1, even if the header now is not sent it will use version 1 of the API.
 
 Once cloned:
 
